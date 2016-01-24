@@ -1,0 +1,28 @@
+#
+# Exhaustive Roll by littlekreen@gmail.com
+#
+%dinero%,100
+%thefuzz%,0
+
+:Start
+<<ul>
+></ul>
+1,{While~%dinero%,[stuff]}
+
+;stuff
+>{If~%dinero% < 2 ? |dinero=0|}
+1,{If~%dinero% >= 42 ? [inventory=1] / [stuff]}
+1,{If~%dinero% >= 13 ? [inventory=2] / [stuff]}
+1,{If~%dinero% >= 3 ? [inventory=3] / [stuff]}
+1,{If~%dinero% >= 2 ? [inventory=4] / [stuff]}
+
+:inventory
+<<li>%dinero%:
+1,Hookers.[event=1]|dinero-42|
+2,{If~%thefuzz%=0 ? Blow.|dinero-13| / FINISH THE STORY!|dinero+10|}
+3,[event=2] This is bat country!|dinero-3|
+4,Not rare enough to die exhaustively.|dinero-2|
+
+:event
+1,|thefuzz=1|Just contemptuous roadside cops.
+2,|thefuzz=0|They can't stop here.

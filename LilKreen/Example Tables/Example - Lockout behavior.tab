@@ -1,0 +1,44 @@
+﻿#
+# Evil™
+#
+:Start
+><br>
+1,Evil™<br>
+_{Loop~{Dice~1d3},[SubRoll]}
+
+:SubRoll
+<<ul>[Requirements]
+></ul>{Reset~Evil}
+1,{Loop~{Dice~1d5},[Evil]}
+
+;Requirements
+> are greedy<br>
+1,[TeacherReqirement=1]The Teachers
+1,[SwedesRequirement=1]The Swedes
+1,[ClownsRequirement=1]The Clowns
+
+:TeacherReqirement
+1,{Lockout~Evil,6-8}
+2,{Unlock~Evil,6-8}
+
+:SwedesRequirement
+1,{Lockout~Evil,5}
+2,{Unlock~Evil,5}
+
+:ClownsRequirement
+1,{Lockout~Evil,11}
+2,{Unlock~Evil,11,6}
+
+:!Evil
+<<li>
+1,Nuns
+2,Clowns[ClownsRequirement=2]
+3,Swedes[SwedesRequirement=2]
+4,Brown People
+5,Frozen Pizza
+6,Toddlers
+7,Premeds
+8,Books
+9,Priest
+10,Teacher[TeacherReqirement=2]
+11,Clown Car
