@@ -6,12 +6,13 @@
 %NumSenses%,0
 %NumPowers%,0
 %NumLang%,0
+%NumPurposes%,0
 %outAttributes%,0
 %outLanguages%,0
 %outSenses%,0
 %outPowers%,0
-%outSpecialPurpose%,0
-%outSpecialPurposePower%,0
+%outSpecialPurposeBlock%,0
+%totalpurposes%,0
 
 ;Start
 <[IntItemStatAssign][FillData]
@@ -19,18 +20,20 @@
 _<b>Attributes:</b> %outAttributes%<br>
 _<b>Spoken Languages:</b> Common%outLanguages%<br>
 _<b>Senses and Communication:</b> Empathy, Senses ([IntItemSensesRange])%outSenses%<br>
-_<b>Powers</b> %outPowers%
-_<b>Special Purpose:</b> %outSpecialPurpose%<br>
-_<tab><tab><b>Special Purpose Power:</b> %outSpecialPurposePower%<br><br>
+_<b>Powers</b><br> %outPowers%
+_{If~%totalpurposes% >= 1 ? %outSpecialPurposeBlock%<br>/}
 
+#HasSpecialPurpose is called before the loop since it's supposed to at least check once per roll the loop is evaluating for how many of those checks came up true.
 :FillData
 1,|outLanguages=[LangBonus]|
 _|outSenses=[AdditionalSenses]|
 _|outPowers=[NumberOfPowers]|
-_|outSpecialPurpose=[HasSpecialPurpose]|
-_|outSpecialPurposePower=[SpecialPurposePower]|
+_[HasSpecialPurpose]|outSpecialPurposeBlock={Loop~%totalpurposes%,[FillDataInner=1][FillDataInner=2]}|
 _|outAttributes=INT=%Int% (%IntBonus%), WIS=%Wis% (%WisBonus%), EGO=%TotalEgo%|
 
+:FillDataInner
+1,[SpecialPurpose]<br>
+2,<b>Special Purpose Power:</b> [SpecialPurposePower]<br>
 
 :IntItemAlign
 1-10,Chaotic Good
@@ -53,10 +56,13 @@ _|TotalEgo={Calc~(10 + %IntBonus% + %WisBonus%)}|
 >{Reset~SensesType}{Reset~Powers}{Reset~HasSpecialPurpose}{Reset~SpecialPurposePower}
 
 
+;LangBonus
+1,|NumLang=%IntBonus%|{CommaReplace~1,@,{While~%NumLang%,@{Space~1}[CR_RefLanguages.Start]|NumLang-1|}}
+
+
 ;AdditionalSenses
 1,|NumSenses={Dice~1d10-4}||NumSenses>0|
-_{CommaReplace~1,@,{While~%NumSenses%,@{Space~1}[SensesType]|NumSenses-1|}}
-_{While~%NumSenses%,[SensesType]|NumSenses-1|}
+_{CommaReplace~1,@,{While~%NumSenses%,@{Space~1}[IfSensesRemain]|NumSenses-1|}}
 
 ;!SensesType
 1,Speech
@@ -65,70 +71,88 @@ _{While~%NumSenses%,[SensesType]|NumSenses-1|}
 1,Blindsense|TotalEgo + 1|
 1,Read Languages|TotalEgo + 1|
 1,Read Magic|TotalEgo+1|
-_{Loop~{Dice~1d6},[IfSensesRemain]}
 
 :IfSensesRemain
 1,{If~{Used~SensesType} != 1 ? [SensesType]}
-
 
 :IntItemSensesRange
 1-60,30ft
 61-85,60ft
 86-100,120ft
 
-;LangBonus
-1,|NumLang=%IntBonus%|{CommaReplace~1,@,{While~%NumLang%,@{Space~1}[CR_RefLanguages.Start]|NumLang-1|}}
-
-:AdditionalPowers
-1-90, 
-91-100,[NumberOfPowers]
 
 :NumberOfPowers
-1,|NumPowers={Dice~1d14}|
-_{While~%NumPowers%,[Powers]|NumPowers-1|}
->{If~%NumPowers% < 1 ? |NumPowers=0|}
-
+>{Loop~%NumPowers%,[Powers]}{If~%NumPowers% >= 6 ? [HasSpecialPurpose=100]}
+1-70,|NumPowers=1|
+71-78,|NumPowers=2|
+79-83,|NumPowers=3|
+84-87,|NumPowers=4|
+88-90,|NumPowers=5|
+91,|NumPowers=6|
+92,|NumPowers=7|
+93,|NumPowers=8|
+94,|NumPowers=9|
+95,|NumPowers=10|
+96,|NumPowers=11|
+97,|NumPowers=12|
+98,|NumPowers=13|
+99,|NumPowers=14|
+100,|NumPowers=15|
 
 :!Powers
-1-10,<li>Item can cast [CR_RefSpells.0LevelSpells] spell at will (Ego +1)|TotalEgo + 1|<br>{Unlock~Powers,1-10}
-11-20,<li>Item can cast [CR_RefSpells.1stLevelSpells] 3/day (Ego +1)|TotalEgo + 1|<br>{Unlock~Powers,11-20}
-21-25,<li>Item can use magic aura on itself at will (Ego +1)|TotalEgo + 1|<br>
-26-35,<li>Item can cast a [CR_RefSpells.2ndLevelSpells] 1/day (Ego +1)|TotalEgo + 1|<br>{Unlock~Powers,16-35}
-36-45,<li>Item has 5 ranks in [CR_RefSkills.Start] (Ego +1)|TotalEgo + 1|<br>{Unlock~Powers,36-45}
-46-50,<li>Item can sprout limbs and move with a speed of 10 feet (Ego +1)|TotalEgo + 1|<br>
-51-55,<li>Item can cast [CR_RefSpells.3rdLevelSpells] 1/day (Ego +1)|TotalEgo + 1|<br>{Unlock~Powers,51-55}
-56-60,<li>Item can cast [CR_RefSpells.2ndLevelSpells] 3/day (Ego +1)|TotalEgo + 1|<br>{Unlock~Powers,56-60}
-61-70,<li>Item has 10 ranks in [CR_RefSkills.Start] (Ego +2)|TotalEgo + 2|<br>{Unlock~Powers,61-70}
-71-75,<li>Item can change shape into one other form of the same size (Ego +2)|TotalEgo + 2|<br>
-76-80,<li>Item can fly, as the spell, at a speed of 30 feet (Ego +2)|TotalEgo + 2|<br>
-81-85,<li>Item can cast [CR_RefSpells.4thLevelSpells] 1/day (Ego +2)|TotalEgo + 2|<br>{Unlock~Powers,81-85}
-86-90,<li>Item can teleport itself 1/day (Ego +2)|TotalEgo + 2|<br>
-91-95,<li>Item can cast a [CR_RefSpells.3rdLevelSpells] 3/day (Ego +2)|TotalEgo + 2|<br>{Unlock~Powers,91-95}
-96-100,<li>Item can cast [CR_RefSpells.4thLevelSpells] 3/day (Ego +2)|TotalEgo + 2|<br>{Unlock~Powers,96-100}
+<&nbsp; &nbsp; &nbsp; 
+1-10,Item can cast [CR_RefSpells.0LevelSpells] spell at will (Ego +1)|TotalEgo + 1|<br>{Unlock~Powers,1-10}
+11-20,Item can cast [CR_RefSpells.1stLevelSpells] 3/day (Ego +1)|TotalEgo + 1|<br>{Unlock~Powers,11-20}
+21-25,Item can use Magic Aura on itself at will (Ego +1)|TotalEgo + 1|<br>
+26-35,Item can cast a [CR_RefSpells.2ndLevelSpells] 1/day (Ego +1)|TotalEgo + 1|<br>{Unlock~Powers,16-35}
+36-45,Item has 5 ranks in [CR_RefSkills.IntItemSkills] (Ego +1)|TotalEgo + 1|<br>{Unlock~Powers,36-45}
+46-50,Item can sprout limbs and move with a speed of 10 feet (Ego +1)|TotalEgo + 1|<br>
+51-55,Item can cast [CR_RefSpells.3rdLevelSpells] 1/day (Ego +1)|TotalEgo + 1|<br>{Unlock~Powers,51-55}
+56-60,Item can cast [CR_RefSpells.2ndLevelSpells] 3/day (Ego +1)|TotalEgo + 1|<br>{Unlock~Powers,56-60}
+61-70,Item has 10 ranks in [CR_RefSkills.IntItemSkills] (Ego +2)|TotalEgo + 2|<br>{Unlock~Powers,61-70}
+71-75,Item can change shape into one other form of the same size (Ego +2)|TotalEgo + 2|<br>
+76-80,Item can fly, as the spell, at a speed of 30 feet (Ego +2)|TotalEgo + 2|<br>
+81-85,Item can cast [CR_RefSpells.4thLevelSpells] 1/day (Ego +2)|TotalEgo + 2|<br>{Unlock~Powers,81-85}
+86-90,Item can teleport itself 1/day (Ego +2)|TotalEgo + 2|<br>
+91-95,Item can cast a [CR_RefSpells.3rdLevelSpells] 3/day (Ego +2)|TotalEgo + 2|<br>{Unlock~Powers,91-95}
+96-100,Item can cast [CR_RefSpells.4thLevelSpells] 3/day (Ego +2)|TotalEgo + 2|<br>{Unlock~Powers,96-100}
 
 
 :HasSpecialPurpose
-1-99, None
-100,[SpecialPurpose]
+1-99,<br>
+100,|totalpurposes=1|
 
 :!SpecialPurpose
-001-20,{If~[HasSpecialPurpose = 100 ? Defeat/Slay diametrically opposed alignment|TotalEgo + 2| / }
-021-30,{If~[HasSpecialPurpose = 100 ? Defeat/Slay arcane spellcasters (including spellcasting monsters and those that use spell-like abilities)|TotalEgo + 2| / }
-031-40,{If~[HasSpecialPurpose = 100 ? Defeat/Slay divine spellcasters (including divine entities and servitors)|TotalEgo + 2| / }
-041-50,{If~[HasSpecialPurpose = 100 ? Defeat/Slay nonspellcasters|TotalEgo + 2| / }
-051-55,{If~[HasSpecialPurpose = 100 ? Defeat/Slay [RMIG_Weapons.WeaponAbilityBane]|TotalEgo + 2| / }
-056-60,{If~[HasSpecialPurpose = 100 ? Defeat/Slay a particular race or kind of creature|TotalEgo + 2| / }
-061-70,{If~[HasSpecialPurpose = 100 ? Defend a particular race or kind of creature|TotalEgo + 2| / }
-071-80,{If~[HasSpecialPurpose = 100 ? Defeat/Slay the servants of a specific deity|TotalEgo + 2| / }
-081-90,{If~[HasSpecialPurpose = 100 ? Defend the servants and interests of a specific deity|TotalEgo + 2| / }
-091-95,{If~[HasSpecialPurpose = 100 ? Defeat/Slay all (other than the item and the wielder)|TotalEgo + 2| / }
-96-100,{If~[HasSpecialPurpose = 100 ? [SpecialPurpose]
+<{Unlock~SpecialPurpose,96-100}
+1-20,<b>Special Purpose:</b> [PurposeText=1]|TotalEgo + 2|[SpecialPurposePower]
+21-30,<b>Special Purpose:</b> [PurposeText=2]|TotalEgo + 2|[SpecialPurposePower]
+31-40,<b>Special Purpose:</b> [PurposeText=3]|TotalEgo + 2|[SpecialPurposePower]
+41-50,<b>Special Purpose:</b> [PurposeText=4]|TotalEgo + 2|[SpecialPurposePower]
+51-55,<b>Special Purpose:</b> [PurposeText=5]|TotalEgo + 2|[SpecialPurposePower]
+56-60,<b>Special Purpose:</b> [PurposeText=6]|TotalEgo + 2|[SpecialPurposePower]
+61-70,<b>Special Purpose:</b> [PurposeText=7]|TotalEgo + 2|[SpecialPurposePower]
+71-80,<b>Special Purpose:</b> [PurposeText=8]|TotalEgo + 2|[SpecialPurposePower]
+81-90,<b>Special Purpose:</b> [PurposeText=9]|TotalEgo + 2|[SpecialPurposePower]
+91-95,<b>Special Purpose:</b> [PurposeText=10]|TotalEgo + 2|[SpecialPurposePower]
+96-100,{Inputlist~1,Select a special purpose,[PurposeText=1],[PurposeText=2],[PurposeText=3],[PurposeText=4],[PurposeText=5],[PurposeText=6],[PurposeText=7],[PurposeText=8],[PurposeText=9],[PurposeText=10]}
+
+:PurposeText
+1,Defeat/Slay diametrically opposed alignment
+2,Defeat/Slay arcane spellcasters (including spellcasting monsters and those that use spell-like abilities)
+3,Defeat/Slay divine spellcasters (including divine entities and servitors)
+4,Defeat/Slay nonspellcasters
+5,Defeat/Slay [RMIG_Weapons.WeaponAbilityBane]
+6,Defeat/Slay a particular race or kind of creature
+7,Defend a particular race or kind of creature
+8,Defeat/Slay the servants of a specific deity
+9,Defend the servants and interests of a specific deity
+10,Defeat/Slay all (other than the item and the wielder)
 
 :SpecialPurposePower
-1-20,{If~[HasSpecialPurpose = 100 ? can detect any special purpose foes within 60 feet (Ego +1)|TotalEgo + 1| / None}
-21-35,{If~[HasSpecialPurpose = 100? can use [CR_RefSpells.4thLevelSpells] at will (Ego +2)|TotalEgo + 2| / None}
-36-50,{If~[HasSpecialPurpose = 100? Wielder gets +2 luck bonus on attacks, saves, and checks (Ego +2)|TotalEgo + 2| / None}
-51-65,{If~[HasSpecialPurpose = 100? can use [CR_RefSpells.5thLevelSpells] at will (Ego +2)|TotalEgo + 2| / None}
-66-80,{If~[HasSpecialPurpose = 100? can use [CR_RefSpells.6thLevelSpells] at will (Ego +2)|TotalEgo + 2| / None}
-81-95,{If~[HasSpecialPurpose = 100? can use [CR_RefSpells.7thLevelSpells] at will (Ego +2)|TotalEgo + 2| / None}
-96-100,{If~[HasSpecialPurpose = 100? can use true resurrection on wielder, once per month (Ego +2)|TotalEgo + 2| / None}
+1-20,can detect any special purpose foes within 60 feet (Ego +1)|TotalEgo + 1
+21-35,can use [CR_RefSpells.4thLevelSpells] at will (Ego +2)|TotalEgo + 2|
+36-50,Wielder gets +2 luck bonus on attacks, saves, and checks (Ego +2)|TotalEgo + 2|
+51-65,can use [CR_RefSpells.5thLevelSpells] at will (Ego +2)|TotalEgo + 2|
+66-80,can use [CR_RefSpells.6thLevelSpells] at will (Ego +2)|TotalEgo + 2|
+81-95,can use [CR_RefSpells.7thLevelSpells] at will (Ego +2)|TotalEgo + 2|
+96-100,can use true resurrection on wielder, once per month (Ego +2)|TotalEgo + 2|
