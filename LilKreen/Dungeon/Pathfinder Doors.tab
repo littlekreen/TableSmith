@@ -1,0 +1,163 @@
+﻿#
+# Doors
+#
+
+%partycr%,4
+
+@partycr,4,"What CR is your party?"
+
+:Start
+<<HR>
+1,Door Type:[LN~Type] 
+_<BR>Locks (Hardness 15, HP 30):[LN~LockLoop]
+_<BR>Traps:[LN~TrapLoop]
+_<BR>Modifiers (if any):{Loop~{Dice~1d4},[LN~ModLoop]}
+
+;Type
+<<BR><b>
+></b><BR>
+42,Simple wooden door (Hardness-5,HP-10,Stuck break DC-13,Locked break DC-15)[Noburn]
+38,Good Wooden door (Hardness-5,HP-15,Stuck break DC-16,Locked break DC-18)[Noburn]
+38,Strong Wooden door (Hardness-5,HP-20,Stuck break DC-23,Locked break DC-25)[Noburn]
+28,Stone door(Hardness-8,HP-60,Stuck break DC-28,Locked break DC-28)[Nonflam]
+21,Iron door (Hardness-10,HP-60,Stuck break DC-28,Locked break DC-28)[Nonflam]
+16,Masterwork Darkwood Door (Hardness-5,HP-30,Stuck break DC-23,Locked break DC-25)[Noburn]
+3,Adamantine Door (Hardness-20,HP-80,Stuck break DC-34,Locked break DC-34) [Nonflam]
+5,Portcullis, Wooden (Hardness-5,HP-30,Stuck break DC-23,Locked break DC-25)[Noburn]
+4,Portcullis, Stone (Hardness-8,HP-60,Stuck break DC-28,Locked break DC-28)[Nonflam]
+3,Portcullis, Iron (Hardness-10,HP-60,Stuck break DC-28,Locked break DC-28)[Nonflam]
+2,Portcullis, Adamantine (Hardness-20,HP-80,Stuck break DC-34,Locked break DC-34)[Nonflam]
+
+;LockLoop
+<<b>
+></b><BR>
+33,No lock or handle
+19,No lock, Handle only
+4,Unlocked
+31,[LockMain]
+10,{Loop~{Dice~1d4-1},[LockMain]}
+3,{Loop~{Dice~1d4+1},[LockMain]}
+
+;LockMain
+<<BR>
+39, a poor Lock DC({Dice~1d4+12})
+28, a average lock DC({Dice~1d6+16})
+21, a good lock DC({Dice~3d4+12})
+8, an arcane Lock (Knock, Dispel, or +10 Break DC)
+3, Intelligent Door {Lockout~LockMain,91-97}
+1, Internal lodestone Lock
+
+;TrapLoop
+<<b>
+></b><br>
+64,None
+21,[TrapMain]
+12,{Loop~{Dice~1d3-1},[TrapMain]}
+4,{Loop~{Dice~1d3},[TrapMain]}
+
+;TrapMain
+<<BR>
+23,Normal: [Traps.Start={Calc~%partycr%+{Dice~1d3-1}}]
+16,Easy (CR {Calc~%partycr%-{Dice~1d3}})
+12,Hard (CR {Calc~%partycr%+{Dice~1d3}})
+8,Impossible (CR {Calc~%partycr%+{Dice~2d4+1}})
+7,Equipped with Leomund's Trap
+
+;ModLoop
+<<b>
+></b>
+50,
+25,[Modifier]
+12,{Loop~{Dice~1d3},[Modifier]}
+6,{Loop~{Dice~1d3},[Modifier+12]}
+3,{Loop~{Dice~1d3},[Modifier+24]}
+2,{Loop~{Dice~1d3},[Modifier+36]}
+
+;Modifier
+<<BR>
+51,[ModMinor]
+26,[ModMedium]
+14,[ModMajor]
+7,[ModMagical]
+
+:Noburn
+1,{Lockout~ModMinor,7}{Lockout~ModMedium,7}{Lockout~ModMajor,7}
+
+:Nonflam
+1,{Lockout~ModMinor,2}
+
+:!ModMinor
+1,Layer of mud, (+2 stuck DC)
+2,Burnt (-2 Break DC, -5 HP)
+3,Hinge or pivot squeaks (Listen DC 25)
+4,Has a Viewport in the center [Viewport] 
+5,Worn (-2 Break DC, +2 stuck DC, -5 HP)
+6,Warped (-2 break dc, +2 stuck DC)
+7,Warm{Lockout~ModMedium,7}{Lockout~ModMajor,7}
+8,Door is stuck at [LN~Stuck-20]
+
+:!ModMedium
+1,Outside is slick with a thin layer of oil (-5 to lockpick checks)
+2,Door creaks (Listen DC 20)
+3,Door slides, ([Direction] break DC)
+4,Door is stuck at [LN~Stuck]
+5,Damaged (-5 Break dc, +5 Stuck DC, -10 hp)
+6,Secret (Search DC 20) {Lockout~ModMajor,4}
+7,Hot (1d3 subdual on contact) {Lockout~ModMajor,7}{Lockout~ModMinor,7}
+8,Far side has hinge (Cannot attack hinge from lock side)
+
+:!ModMajor
+1,Bangs (Listen DC 15)
+2,Door is acid/flame retardant (Resist fire or acid 10)
+3,Door is airtight (Suffocation based on room size)
+4,Heavily Damaged (-5 break DC, -5 Stuck DC, -15 HP)
+5,Well hidden secret (Search DC 30) {Lockout~ModMedium,4}
+6,Hollow (-10 Break DC for wooden doors)
+7,Searing (1d3 fire damage on contact) {Lockout~ModMedium,7}{Lockout~ModMinor,7}
+8,Internal hinge (Cannot attack hinge)
+9,On a pivot (Cannot attack hinge)
+10,Door is stuck at [LN~Stuck+20]
+
+:!ModMagical
+1,Alarmed (Listen DC 10)
+2,Door is self-mending (Regen 2)
+3,Magically reinforced, Break DC 30 for wooden, 40 for stone/iron, 50 for Adamantine
+4,Door repels metal
+5,Door has an ornate [Miscellaneous.Precious Material] inlay (50GP)
+6,Door is electrified, 2d6 on contact with uninsulated hands
+7,Protection from [Alignment], (+5 hardness versus attacks from aligned individuals)
+8,Resist [Element] 10
+
+:Element
+1,Cold
+2,Fire
+3,Acid
+4,Sonic
+5,Electricity
+
+:Alignment
+1,Good
+2,Evil
+3,Neutral
+4,Law
+5,Chaos
+6,Undead
+
+;Viewport
+48,made of glass (Break DC 10)
+23,with metal bars (Break DC 15)
+11,made of glass cubes (Break DC 18)
+8,with a sliding wooden door on the inside (Break DC 20)
+8,with a Sliding metal door on the inside (Break DC 25)
+
+;Direction
+1,Lift DC 25, Up +2
+1,Down +1
+1,Sideways +1
+
+;Stuck
+<CR
+47,13
+22,18
+15,23
+14,28

@@ -1,0 +1,97 @@
+﻿#
+# Missmab Races (NPC generator)
+#
+
+%Race%,1
+%RaceInvBonus%,1
+%RaceMixed%,1
+%Maturity%,25
+%AgeMax,1
+%AgeSpread%,1d30-15
+%AgeIndeterminate%,1
+
+@Maturity,25,How old are the characters in percentage of their lifespan? (humans are generally mature at a quarter of their lifespan)
+@AgeSpread,1d30-15,What is the spread of ages in percentage points? (use dice format) (default is -14 to 15) or a variance of 29%
+:Start
+1,<ul>
+_[Race]
+_[Age=%AgeIndeterminate%]
+_{Loop~{Dice~1d3},[Color]}
+_[Inventory]
+_[Traits]
+_[LastOccupation]
+_</ul>
+
+;Race
+<<li>
+></li>
+9,[RaceExotic]|RaceInvBonus+1|
+8,Demon - [DemonClan]|Race=1||RaceInvBonus+2||AgeMax=1500|
+37,Phoenix (B)|Race=2||AgeMax=95||RaceMixed=0|
+8,Gryphon (B)|Race=3||AgeMax=65||RaceMixed=0|
+37,Being|Race=4||RaceInvBonus-1||AgeMax=100|
+
+;RaceExotic
+1,[RaceOP]
+1,Were|Race=5||AgeMax=100|
+1,Insectis|Race=6||AgeMax=130||RaceMixed=0|
+1,Mythos|Race=7||AgeIndeterminate=2|
+1,Undead|Race=8||AgeIndeterminate=2|
+1,Angel|Race=9||RaceInvBonus+2||AgeMax=1500|
+1,Cubi - [CubiClan]|Race=10||AgeMax=3000|
+1,Mer|Race=11||RaceInvBonus+2||AgeIndeterminate=2||RaceMixed=0|
+
+;RaceOP
+1,Gryphon (C)|Race=12||RaceInvBonus-3||AgeMax=200||RaceMixed=0|
+1,Phoenix (A)|Race=13||RaceInvBonus+2||AgeIndeterminate=2||RaceMixed=0|
+1,Dragon|Race=14||RaceInvBonus+2||AgeIndeterminate=2||RaceMixed=0|
+1,Fae|Race=15||RaceInvBonus+2||AgeIndeterminate=2|
+
+:Age
+<<li>Age - 
+></li>
+1,|Maturity+{Dice~%AgeSpread%}|{Calc~%AgeMax%*{Calc~%Maturity%/100}}
+2,Unknown or Indeterminate
+
+;!Color
+<<li>
+></li>
+1,Primary color: [Miscellaneous.Color]
+1,Secondary color: [Miscellaneous.Color]
+1,Highlight color: [Miscellaneous.Color]
+
+;Inventory
+<<li>Inventory (I need to locate the equipment table):<ol>
+></ol></li>
+1,{Loop~{Dice~1d3+%RaceInvBonus%},[InventoryLoop]}
+
+;InventoryLoop
+<<li>
+></li>
+10,[Miscellaneous.General Quality] - [Equipment.MiscItems]
+1,[Miscellaneous.General Quality] - [Equipment.Weapons]
+
+:Traits
+<<li>Traits:<ol>
+></ol></li>
+1,[Miscellaneous.Personality]
+
+:LastOccupation
+<<li>
+></li>
+1,Last Occupation: [Miscellaneous.OccupationsMeanings]
+
+
+#
+#Race specific calls
+#
+;CubiClan
+3,Taun
+3,Zezzuva
+3,Ja'krath
+1,(Other)
+
+;DemonClan
+2,Vlkodav
+2,Smrtislav
+1,(Other)

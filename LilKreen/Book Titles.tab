@@ -1,0 +1,439 @@
+# Book Titles
+#
+# Names of books one might find in a library
+#
+# Copyright 2005 Bruce A. Gulke
+#
+
+;Start
+1,[Religion]
+1,[Travelling]
+1,[Biology]
+1,[Magic]
+1,[Craftwork]
+1,[Tales]
+1,[Art]
+1,[Historical]
+1,[Geography]
+1,[Linguistics]
+
+;Religion
+1,Life of Saint [Fantasy Names.Start]
+1,{Cap~[RelThings]} to the {Cap~[Domain]} {Cap~[Rel]}
+1,{Cap~[Adj]} {Cap~[Things]} of the {Cap~[Domain]} {Cap~[Rel]}
+1,{Cap~[Things]} of the {Cap~[Domain]} {Cap~[Rel]}
+
+;Travelling
+1,{Cap~[Travel]} of [Fantasy Names.Start]
+
+;Biology
+1,{CapEachWord~[Bio]} of the {Cap~[Inn and Tavern Names.Creature]}
+1,{Cap~[Inn and Tavern Names.Creature]} {Cap~[Things]}
+
+;Magic
+1,{Cap~[Adj]} {Cap~[Arcana]} {Cap~[Things]}
+1,{Cap~[Arcana]} {Cap~[Things]}
+1,{Cap~[Adj]} {Cap~[Things]} {Cap~[Regarding]} {Cap~[Arcana]}
+1,{Cap~[Things]} {Cap~[Regarding]} {Cap~[Arcana]}
+
+;Craftwork
+1,{Cap~[Guide]} {Cap~[Crafts]}
+
+;Tales
+1,{Cap~[Story]} of the {Cap~[Inn and Tavern Names.Adjective I]} {Cap~[Inn and Tavern Names.Place]}
+1,{Cap~[Story]} of the {Cap~[Inn and Tavern Names.Adjective I]} {Cap~[Inn and Tavern Names.Person]}
+1,{Cap~[Story]} of the {Cap~[Inn and Tavern Names.Adjective II]} {Cap~[Inn and Tavern Names.Person]}
+
+;Art
+1,{Cap~[PoetType]} {Cap~[Poetry]}
+
+;Historical
+1,{Cap~[History]} of the {Cap~[HistType]}
+1,{Cap~[Adj]} {Cap~[Things]} of the {Cap~[HistType]}
+1,{Cap~[Things]} of the {Cap~[HistType]}
+1,{Cap~[Fame]} {Cap~[People]} of the {Cap~[HistType]}
+
+;Geography
+1,{Cap~[Inn and Tavern Names.Adjective I]} {Cap~[Geo]} Atlas
+1,{Cap~[GeoThings]} of the {Cap~[Inn and Tavern Names.Adjective I]} {Cap~[Geo]}
+1,{Cap~[Activity]} in the {Cap~[Geo]}
+1,{Cap~[Dictionary]} of {Cap~[Language]} {Cap~[Words]}
+
+;Linguistics
+1,{Cap~[Language]}-{Cap~[Language]} Dictionary
+
+;Things
+1,fables
+1,legends
+1,lore
+1,mysteries
+1,myths
+1,powers
+1,rites
+1,rituals
+1,sagas
+1,secrets
+1,strictures
+1,tales
+1,traditions
+1,spells
+1,blueprints
+1,designs
+
+;RelThings
+1,appeals
+1,champions
+1,hymns
+1,litanies
+1,orders
+1,petitions
+1,prayers
+1,relics
+1,saints
+1,shrines
+1,symbols
+1,temples
+1,rituals
+1,sacifices
+1,blasphemies
+1,secrets
+
+;Domain
+1,air
+1,chaos
+1,death
+1,destruction
+1,earth
+1,evil
+1,fire
+1,good
+1,knowledge
+1,law
+1,love
+1,moon
+1,nature
+1,protection
+1,strength
+1,sun
+1,travel
+1,trickster
+1,war
+1,hate
+1,magic
+
+;Rel
+1,cult
+1,cults
+1,deities
+1,deity
+1,divinities
+1,divinity
+1,faith
+1,faiths
+1,god
+1,goddess
+1,goddesses
+1,gods
+1,religion
+1,religions
+1,demigod
+1,demigods
+1,overbeing
+1,overbeings
+
+;Crafts
+1,alchemy
+1,assassination
+1,baking
+1,barrelmaking
+1,basketmaking
+1,brewing
+1,carpentry
+1,cobbling
+1,cooking
+1,dancing
+1,fishing
+1,fletching
+1,gemcutting
+1,herbalism
+1,leatherworking
+1,locksmithing
+1,masonry
+1,milling
+1,painting
+1,poisons
+1,ropemaking
+1,sculpting
+1,sewing
+1,smithing
+1,tanning
+1,weaving
+1,artificing
+1,engineering
+1,husbandry
+1,torturing
+1,brainwashing
+1,vivisection
+1,taxidermy
+1,mortuary
+
+;Travel
+1,travels
+1,journeys
+1,voyages
+1,expeditions
+1,documentaries
+1,field studies
+1,journals
+1,diaries
+
+;Geo
+1,caverns
+1,desert
+1,forest
+1,hills
+1,moors
+1,mountains
+1,plains
+1,swamp
+1,underdark
+1,sigil
+1,outer plane
+1,far realm
+1,philogiston
+1,metropolis
+1,hidden valley
+1,floating island
+1,demiplane
+1,ethereal
+1,shadow
+1,mirror
+
+
+;GeoThings
+1,animals
+1,climate
+1,hazards
+1,herbs
+1,history
+1,monsters
+1,people
+1,riches
+1,ruins
+1,settlements
+1,tales
+1,weather
+1,leys
+1,Coterminous structure
+1,undead tendencies
+1,battle sites
+1,mass death sites
+1,Resources
+;Dictionary
+1,dictionary
+1,glossary
+1,lexicon
+
+;Words
+1,letters
+1,phrases
+1,terms
+1,words
+1,symbols
+
+;Bio
+1,bestiary
+1,biology
+1,dietary habits
+1,ecology
+1,mating habits
+1,aural structure
+1,polymorphic response
+1,pain response
+1,alchemical use
+1,ritual use
+
+;Arcana
+1,abjuration
+1,alchemy
+1,conjuration
+1,divination
+1,evocation
+1,illusion
+1,magic
+1,runecraft
+1,thaumaturgy
+1,transmutation
+1,enchantment
+1,necromancy
+1,sorcery
+1,glyphwork
+
+;Guide
+1,book of
+1,compendium on
+1,guide to
+1,manual of
+1,writings on
+1,encyclopedia of
+
+;Regarding
+1,about
+1,concerning
+1,regarding
+1,in reference to
+
+;History
+1,architecture
+1,armies
+1,art
+1,beliefs
+1,cities
+1,cuisine
+1,customs
+1,dances
+1,heraldry
+1,history
+1,music
+1,languages
+1,rulers
+1,ships
+1,trade
+1,treasures
+1,wars
+1,weapons
+1,constructs
+1,undead
+1,lich
+1,murders
+1,battles
+1,wars
+
+;Language
+1,abyssal
+1,aquan
+1,auran
+1,celestial
+1,common
+1,draconic
+1,druidic
+1,dwarven
+1,elven
+1,giant
+1,gnollish
+1,gnomish
+1,goblinoid
+1,ignan
+1,infernal
+1,orcish
+1,sylvan
+1,terran
+1,undercommon
+1,hallruan
+1,Aboleth
+1,Worg
+1,Beholder
+1,Blink Dog
+
+;Story
+1,legend
+1,stories
+1,tales
+
+;Poetry
+1,ballads
+1,idylls
+1,poems
+1,poetry
+1,songs
+1,verses
+
+;PoetType
+1,ancient
+1,celestial
+1,elven
+1,erotic
+1,hopeful
+1,inspirational
+1,merry
+1,mournful
+1,mystic
+1,rousing
+
+;HistType
+1,Ancient World
+1,Barbarian Plains
+1,Chaos Lands
+1,Desert Tribes
+1,Eastern Kingdoms
+1,Empire
+1,Island Kingdoms
+1,Mountain Clans
+1,Northern Cultures
+1,Southern Regions
+1,Western Realms
+1,[NonHuman]
+
+;NonHuman
+1,Dragons
+1,Dwarves
+1,Elves
+1,Giants
+1,Gnomes
+1,Orcs
+1,Trolls
+1,Underworld
+1,Undead
+1,Dryads
+1,Sylvan
+1,Devils
+1,Celestials
+1,Duregar
+1,Drow
+1,
+
+;Fame
+1,acclaimed
+1,exalted
+1,famous
+1,infamous
+1,legendary
+1,notable
+1,obscure
+1,renowned
+1,lost
+1,worthy
+1,accepted
+
+;People
+1,adventurers
+1,champions
+1,heroes
+1,nobles
+1,priests
+1,sages
+1,warriors
+1,wizards
+1,constructs
+1,undead
+
+;Adj
+1,esoteric
+1,false
+1,forbidden
+1,forgotten
+1,hidden
+1,lost
+1,mystical
+1,sacred
+1,secret
+1,unholy
+1,unknown
+1,veiled
+
+;Activity
+1,fighting
+1,hunting
+1,mining
+1,surviving
+1,travel

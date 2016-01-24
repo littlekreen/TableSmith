@@ -1,0 +1,412 @@
+#
+#Random Features
+#
+
+;Start
+1,<UL>{Loop~2,<li>[Room Size.Type]</li>}</UL><br><UL>{Loop~5,[Selector]}</UL>
+
+;Selector
+<<li>
+></li>
+1,Major: [Major]
+3,Minor: [Minor]
+3,Descriptor - [Descriptor]
+
+;Descriptor
+1,[Sensedesc]
+1,[Color]
+1,Quality: [Miscellaneous.General Quality]
+#1,[Miscellaneous.Texture]
+
+;Sensedesc
+1,Sound: [Sense_Sound]
+1,Sight: [Sense_Sight]
+1,Touch: [Sense_Touch]
+1,Smell: [Sense_Smell]
+1,Emotional: [Sense_Emotional]
+1,Magical: [Sense_Magical]
+
+;Sense_Smell
+1,Rotted
+1,Fermented
+1,Yeasty
+1,Mouldy
+1,Dusty
+1,Fruity
+1,Meaty
+1,Flower
+1,Perfume
+1,Waste
+1,Salty
+1,Sweet
+1,Humid
+1,Fall
+1,smoke
+1,melted
+
+;Sense_Magical
+1,[Book Titles.Arcana]
+
+;Sense_Emotional
+1,[Sense_Emotional_Negative]
+1,[Sense_Emotional_Positive]
+
+;Sense_Emotional_Negative
+1,Fear
+1,Anger
+1,Guilt
+1,Depression
+1,Pride
+1,Jealousy
+1,Self-Pity
+1,Anxiety
+1,Resentment
+1,Envy
+1,Frustration
+1,Shame
+1,Denial
+1,Offended
+1,Negative
+1,Regret
+1,Resentful
+1,Sad
+1,Worried
+1,Grief
+
+;Sense_Emotional_Positive
+1,Love
+1,Appreciation
+1,Happiness
+1,Hope
+1,Enthusiasm
+1,Vitality
+1,Confidence
+1,Gratitude
+1,Patient
+1,Trust
+1,Vulnerable
+1,Optimistic
+1,Appreciative
+1,Ashamed
+1,Astonished
+
+;Sense_Sound
+1,Ahem
+1,Bah
+1,Bam
+1,Bang
+1,Bash
+1,Bawl
+1,Beep
+1,Biff
+1,Blare
+1,Blurt
+1,Boing
+1,Boink
+1,Bong
+1,Bonk
+1,Boo
+1,Boom
+1,Bubble
+1,Bump
+1,Buzz
+1,Clack
+1,Clank
+1,Clatter
+1,Click
+1,Clink
+1,Cluck
+1,Clunk
+1,Crackle
+1,Crackled
+1,Crunch
+1,Ding
+1,Eek
+1,Fizz
+1,Flick
+1,Fluttering
+1,Hiccup
+1,Honk
+1,Hum
+1,Jingle
+1,Ping
+1,Plop
+1,Poof
+1,Pow
+1,Puff
+1,Purr
+1,Rattled
+1,Ring
+1,Screech
+1,Sizzled
+1,Slurch
+1,Slurp
+1,Snore
+1,Swish
+1,Swoosh
+1,Thud
+1,Tick-tock
+1,Ting
+1,Toot
+1,Vroom
+1,Wham
+1,Whir
+
+;Sense_Sight
+1,[Sense_Sight_Quantity]
+1,Greyscale
+1,Tinted [Miscellaneous.Color]
+1,Inverted
+1,Black spots
+1,Shimmer
+1,Outline
+1,Camoflauged
+
+;Sense_Sight_Quantity
+1,Black
+1,Dim
+1,Normal light
+1,Bright
+1,Blinding
+
+;Sense_Touch
+1,[Sense_Touch_Temp]
+1,[Sense_Touch_Pain]
+1,[Sense_Touch_Pressure]
+
+;Sense_Touch_Pain
+1,Not painful
+1,minor pain
+1,Dull pain
+1,Sharp pain
+1,Excruciating pain
+
+;Sense_Touch_Pressure
+1,Vacuum
+1,Negative pressure
+1,High altitutde
+1,Ideal Pressure
+1,High pressure
+1,Ridged
+1,Sharp
+1,Bladed
+
+;Sense_Touch_Temp
+1,Freezing
+1,Cold
+1,Room-temperature
+1,Lukewarm
+1,Warm
+1,Body temperature
+1,Hot
+1,Burning
+
+;Color
+1,Primary color: [Miscellaneous.Color]
+1,Secondary color: [Miscellaneous.Color]
+1,Primary Metal: [Miscellaneous.Precious Material]
+1,Secondary Metal: [Miscellaneous.Precious Material]
+
+;Major
+1,Alcove
+1,Altar
+1,Arch
+1,Arrow slit (wall)/murder hole (ceiling)
+1,Balcony
+1,Barrel
+1,Bed
+1,Bench
+1,Bookcase
+1,Brazier
+1,Cage
+1,Caldron
+1,Carpet
+1,Carving
+1,Casket
+1,Catwalk
+1,Chair
+1,Chandelier
+1,Charcoal bin
+1,Chasm
+1,Chest
+1,Chest of drawers
+1,Chute
+1,Coat rack
+1,Collapsed wall
+1,Crate
+1,Cupboard
+1,Curtain
+1,Divan
+1,Dome
+1,Door (broken)
+1,Dung heap
+1,Evil symbol
+1,Fallen stones
+1,Firepit
+1,Fireplace
+1,Font
+1,Forge
+1,Fountain
+1,Furniture (broken)
+1,Gong
+1,Hay (pile)
+1,Hole
+1,Hole (blasted)
+1,Idol
+1,[The Eye.MetalCommon] bars 
+1,Iron maiden
+1,Kiln
+1,Ladder
+1,Ledge
+1,Loom
+1,Loose masonry
+1,Manacles
+1,Manger
+1,Mirror
+1,Mosaic
+1,Mound of rubble
+1,Oven
+1,Overhang
+1,Painting
+1,Partially collapsed ceiling
+1,Pedestal
+1,Peephole
+1,Pillar
+1,Pillory
+1,Pit (shallow)
+1,Platform
+1,Pool
+1,Portcullis
+1,Rack
+1,Ramp
+1,Recess
+1,Relief
+1,Sconce
+1,Screen
+1,Shaft
+1,Shelf
+1,Shrine
+1,Spinning wheel
+1,Stall or pen
+1,Statue
+1,Statue (toppled)
+1,Steps
+1,Stool
+1,Stuffed beast
+1,Sunken area
+1,Table (large)
+1,Table (small)
+1,Tapestry
+1,Throne
+1,Trash (pile)
+1,Tripod
+1,Trough
+1,Tub
+1,Wall basin
+1,Wardrobe
+1,Weapon rack
+1,Well
+1,Winch and pulley
+1,Workbench
+
+;Minor
+1,Anvil
+1,Ash
+1,Backpack
+1,Bale (straw)
+1,Bellows
+1,Belt
+1,Bits of fur
+1,Blanket
+1,Bloodstain
+1,Bones (humanoid)
+1,Bones (nonhumanoid)
+1,Books
+1,Boots
+1,Bottle
+1,Box
+1,Branding iron
+1,Broken glass
+1,Bucket
+1,Candle
+1,Candelabra
+1,Cards (playing cards)
+1,Chains
+1,Claw marks
+1,Cleaver
+1,Clothing
+1,Cobwebs
+1,Cold spot
+1,Corpse (adventurer)
+1,Corpse (monster)
+1,Cracks
+1,Dice
+1,Discarded weapons
+1,Dishes
+1,Dripping water
+1,Drum
+1,Dust
+1,Engraving
+1,Equipment (broken)
+1,Equipment (usable)
+1,Flask
+1,Flint and tinder
+1,Foodstuffs (spoiled)
+1,Foodstuffs (edible)
+1,Fungus
+1,Grinder
+1,Hook
+1,Horn
+1,Hourglass
+1,Insects
+1,Jar
+1,Keg
+1,Key
+1,Lamp
+1,Lantern
+1,Markings
+1,Mold
+1,Mud
+1,Mug
+1,Musical instrument
+1,Mysterious stain
+1,Nest (animal)
+1,Odor (unidentifiable)
+1,Oil (fuel)
+1,Oil (scented)
+1,Paint
+1,Paper
+1,Pillows
+1,Pipe (smoking pipe)
+1,Pole
+1,Pot
+1,Pottery shard
+1,Pouch
+1,Puddle (water)
+1,Rags
+1,Razor
+1,Rivulet
+1,Ropes
+1,Runes
+1,Sack
+1,Scattered stones
+1,Scorch marks
+1,Scroll (nonmagical)
+1,Scroll case (empty)
+1,Skull
+1,Slime
+1,Sound (unexplained)
+1,Spices
+1,Spike
+1,Teeth
+1,Tongs
+1,Tools
+1,Torch (stub)
+1,Tray
+1,Trophy
+1,Twine
+1,Urn
+1,Utensils
+1,Whetstone
+1,Wood (scraps)
+1,Words (scrawled)

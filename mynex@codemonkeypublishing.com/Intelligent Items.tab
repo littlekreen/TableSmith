@@ -1,0 +1,116 @@
+%Int%,0
+%IntBonus%,0
+%Wis%,0
+%WisBonus%,0
+%TotalEgo%,0
+%SensesType%,0
+%NumPowers%,0
+%NumLang%,0
+
+;Start
+1,[IntItemAlign]<br>
+_[IntItemStatAssign]
+_Spoken Languages:Common[LangBonus]
+_[SensesAndCommunication]
+_<br>Item Powers: [NumberOfPowers]
+_[HasSpecialPurpose]
+
+
+:IntItemAlign
+1-10,Chaotic Good
+11-20,Chaotic Neutral
+21-35,Chaotic Evil
+36-45,Neutral Evil
+46-55,Lawful Evil
+56-70,Lawful Good
+71-80,Lawful Neutral
+81-90,Neutral Good
+91-100,Neutral
+
+
+;IntItemStatAssign
+>{Reset~SensesType}{Reset~Powers}
+1,|Int={Dice~2d6+8}||Wis={Dice~2d6+8}|
+_|IntBonus={If~%Int%>=10?{Trunc~{Calc~(%Int%-10)/2}}/{Floor~{Calc~(%Int%-10)/2}}}|
+_|WisBonus={If~%Wis%>=10?{Trunc~{Calc~(%Wis%-10)/2}}/{Floor~{Calc~(%Wis%-10)/2}}}|
+_|TotalEgo={Calc~(10 + %IntBonus% + %WisBonus%)}|{Loop~{Dice~1d6},[SensesType]}
+_INT=%Int% (%IntBonus%), WIS=%Wis% (%WisBonus%), EGO=%TotalEgo%<br>
+
+
+;SensesAndCommunication
+1,<br>Senses and Communication: Empathy, Senses ([IntItemSensesRange])[SensesType]
+
+;!SensesType
+1, Speech
+1, Telepathy|TotalEgo + 1|
+1, Darkvision
+1, Blindsense|TotalEgo + 1|
+1, Read languages|TotalEgo + 1|
+1, Read magic|TotalEgo+1|
+
+:IntItemSensesRange
+2,30ft
+3,60ft
+4,120ft
+
+;LangBonus
+>{If~%NumLang% < 1 ? |NumLang=0|}
+1,|NumLang=%IntBonus%|
+#_{While~%NumLang%,[CR_RefLanguages.Start]|NumLang-1|}
+_{CommaReplace~1,@,<BR>[Thing]} 
+
+;Thing
+1,{While~%NumLang%,%NumLang%Insert Language Here{If~ %NumLang% > 1 ? @{Space~1}}|NumLang-1|}
+
+;NumberOfPowers
+>{If~%NumPowers% < 1 ? |NumPowers=0|}
+1,|NumPowers={Dice~1d15}|
+#_{While~%NumPowers%,[Powers]|NumPowers-1|}
+#_{CommaReplace~1,@,{While~%NumPowers%,[NumberOfPowers]{If~ %NumPowers% > 1 ? @{Space~1}}|NumPowers-1|}} 
+
+
+:!Powers
+1-10,Item can cast [CR_RefSpells.0LevelSpells] spell at will|TotalEgo + 1|
+11-20,Item can cast [CR_RefSpells.1stLevelSpells] 3/day|TotalEgo + 1|
+21-25,Item can use magic aura on itself at will|TotalEgo + 1|
+26-35,Item can cast a [CR_RefSpells.2ndLevelSpells] 1/day|TotalEgo + 1|
+36-45,Item has 5 ranks in [CR_RefSkills.Start]|TotalEgo + 1|
+46-50,Item can sprout limbs and move with a speed of 10 feet|TotalEgo + 1|
+51-55,Item can cast [CR_RefSpells.3rdLevelSpells] 1/day|TotalEgo + 1|
+56-60,Item can cast [CR_RefSpells.2ndLevelSpells] 3/day|TotalEgo + 1|
+61-70,Item has 10 ranks in [CR_RefSkills.Start]|TotalEgo + 2|
+71-75,Item can change shape into one other form of the same size|TotalEgo + 2|
+76-80,Item can fly, as the spell, at a speed of 30 feet|TotalEgo + 2|
+81-85,Item can cast [CR_RefSpells.4thLevelSpells] 1/day|TotalEgo + 2|
+86-90,Item can teleport itself 1/day|TotalEgo + 2|
+91-95,Item can cast a [CR_RefSpells.3rdLevelSpells] 3/day|TotalEgo + 2|
+96-100,Item can cast [CR_RefSpells.4thLevelSpells] 3/day|TotalEgo + 2|
+
+
+
+:HasSpecialPurpose
+1,<br>
+2,<br>Special Purpose: [SpecialPurpose] and can [SpecialPurposePower]
+
+
+:SpecialPurpose
+1-20,Defeat/slay diametrically opposed alignment|TotalEgo + 2|
+21-30,Defeat/slay arcane spellcasters (including spellcasting monsters and those that use spell-like abilities)|TotalEgo + 2|
+31-40,Defeat/slay divine spellcasters (including divine entities and servitors)|TotalEgo + 2|
+41-50,Defeat/slay nonspellcasters|TotalEgo + 2|
+51-55,Defeat/slay [RMIG_Weapons.WeaponAbilityBane]|TotalEgo + 2|
+56-60,Defeat/slay a particular race or kind of creature|TotalEgo + 2|
+61-70,Defend a particular race or kind of creature|TotalEgo + 2|
+71-80,Defeat/slay the servants of a specific deity|TotalEgo + 2|
+81-90,Defend the servants and interests of a specific deity|TotalEgo + 2|
+91-95,Defeat/slay all (other than the item and the wielder)|TotalEgo + 2|
+96-100,[SpecialPurpose]
+
+:SpecialPurposePower
+1-20,can detect any special purpose foes within 60 feet|TotalEgo + 1|
+21-35,can use [CR_RefSpells.4thLevelSpells] at will|TotalEgo + 2|
+36-50,Wielder gets +2 luck bonus on attacks, saves, and checks|TotalEgo + 2|
+51-65,can use [CR_RefSpells.5thLevelSpells] at will|TotalEgo + 2|
+66-80,can use [CR_RefSpells.6thLevelSpells] at will|TotalEgo + 2|
+81-95,can use [CR_RefSpells.7thLevelSpells] at will|TotalEgo + 2|
+96-100,can use true resurrection on wielder, once per month|TotalEgo + 2|

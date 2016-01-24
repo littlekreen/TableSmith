@@ -1,0 +1,25 @@
+﻿#
+# Room Size
+#
+
+:Start
+1,[Type]
+
+;Type
+4,[Size] x [Size]
+2,Square Width: [Size]
+1,[Hallway] Length:[Size={Dice~1d72+32}]
+
+;Hallway
+64,Hallway (Thin) [Size={Dice~1d64}]
+8,Hallway (Wide) [Size={Dice~1d96}]
+2,Hallway (Massive) [Size]
+
+;Size
+32, Tiny {Dice~1d2}
+32,Small {Dice~1d2+2}
+16,Medium {Dice~1d5+3}
+16,Large {Dice~1d9+7}
+8,Huge {Dice~1d17+15}
+4,Gargantuan {Dice~1d33+31}
+2,Colossal {Dice~1d65+63}

@@ -1,0 +1,500 @@
+#
+# The Eye
+#
+%MapX%,3
+%MapY%,3
+%MapUnits%,200
+%MapSection%, 1
+%TempRoll%,0
+%PlanetSize%,0
+%PlanetRadius%,0
+%DenseMult%,10
+%UnitFeet%,{Calc~%MapUnits%*5}
+
+#Math
+%43pi%,{Calc~(4/3)*(355/113)}
+
+@MapX,5,Map X value in units
+@MapY,5,Map Y value in units
+@MapUnits,200,Amount of squares for one side of a unit of space
+@MapSection,1,Section that the map is in: 1=<15% 2=<65% 3=<90% 4=>90%
+
+:Start
+1,Space map %MapX% by %MapY% and
+_ units are a {Calc~%MapUnits%*5}' cube<BR>
+_<Table border="1" Style="font-size:75/%">
+_{Loop~%MapY%,[Row]}</Table><BR> 
+_|TempRoll=1|Condition Legend:<UL>{Loop~12,[ConditionDesc=%TempRoll%]|TempRoll={Calc~%TempRoll%+1}|}</UL>
+
+:Row
+<<TR>
+></TR>
+1,{Loop~%MapX%,<TD>{Loop~{Dice~1d3},<BR>[Main%MapSection%]}</TD>}
+
+;Main1
+70,<B>Dust</B>([RockType%MapSection%])
+10,([RockType%MapSection%])[RockSize%MapSection%]
+2,[Complex Materials%MapSection%]
+10,[Hairworms%MapSection%]
+5,[Hostile Condition%MapSection%]
+3,[Structures%MapSection%]
+
+;Main2
+30,<B>Dust</B>([RockType%MapSection%])
+15,([RockType%MapSection%])[RockSize%MapSection%]
+15,[Complex Materials%MapSection%]
+20,[Hairworms%MapSection%]
+10,[Hostile Condition%MapSection%]
+10,[Structures%MapSection%]
+
+;Main3
+10,<B>Dust</B>([RockType%MapSection%])
+25,([RockType%MapSection%])[RockSize%MapSection%]
+15,[Complex Materials%MapSection%]
+10,[Hairworms%MapSection%]
+20,[Hostile Condition%MapSection%]
+20,[Structures%MapSection%]
+
+;Main4
+5,<B>Dust</B>([RockType%MapSection%])
+30,([RockType%MapSection%])[RockSize%MapSection%]
+25,[Complex Materials%MapSection%]
+5,[Hairworms%MapSection%]
+30,[Hostile Condition%MapSection%]
+5,[Structures%MapSection%]
+
+#
+#SECTION 1
+#
+;RockType1
+25,[RockTypeList=1]
+10,[RockTypeList=2]
+1,[RockTypeList=3]
+30,[RockTypeList=4]
+15,[RockTypeList=5]
+15,[RockTypeList=6]
+3,[RockTypeList=7]
+1,[RockTypeList=8]
+
+;RockSize1
+57,[RockSizeList=1]
+18,[RockSizeList=2]
+10,[RockSizeList=3]
+9,[RockSizeList=4]
+4,[RockSizeList=5]
+1,[RockSizeList=6]
+1,[RockSizeList=7]
+
+;Complex Materials1
+75,[MaterialsList=1]
+15,[MaterialsList=2]
+7,[MaterialsList=3]
+1,[MaterialsList=4]
+1,[MaterialsList=5]
+1,[MaterialsList=6]
+
+;Hairworms1
+60,[WormList=1] 
+15,[WormList=2]
+10,[WormList=3]
+5,[WormList=4]
+8,[WormList=5]
+2,[WormList=6]
+
+;Hostile Condition1
+30,[ConditionList=1]
+20,[ConditionList=2]
+15,[ConditionList=3]
+5,[ConditionList=4]
+5,[ConditionList=5]
+3,[ConditionList=6]
+4,[ConditionList=7]
+8,[ConditionList=8]
+5,[ConditionList=9]
+5,[ConditionList=10]
+
+;Structures1
+60,[StructureList=1]
+15,[StructureList=2]
+20,[StructureList=3]
+5,[StructureList=4]
+
+#
+#SECTION 2
+#
+;RockType2
+20,[RockTypeList=1]
+13,[RockTypeList=2]
+5,[RockTypeList=3]
+10,[RockTypeList=4]
+20,[RockTypeList=5]
+20,[RockTypeList=6]
+9,[RockTypeList=7]
+3,[RockTypeList=8]
+
+;RockSize2
+15,[RockSizeList=1]
+13,[RockSizeList=2]
+25,[RockSizeList=3]
+30,[RockSizeList=4]
+10,[RockSizeList=5]
+3,[RockSizeList=6]
+4,[RockSizeList=7]
+
+;Hairworms2
+30,[WormList=1] 
+15,[WormList=2]
+14,[WormList=3]
+5,[WormList=4]
+15,[WormList=5]
+20,[WormList=6]
+1,[WormList=7]
+
+;Hostile Condition2
+10,[ConditionList=1]
+25,[ConditionList=2]
+10,[ConditionList=3]
+15,[ConditionList=4]
+6,[ConditionList=5]
+4,[ConditionList=6]
+4,[ConditionList=7]
+8,[ConditionList=8]
+10,[ConditionList=9]
+6,[ConditionList=10]
+1,[ConditionList=11]
+1,[ConditionList=12]
+
+;Complex Materials2
+50,[MaterialsList=1]
+20,[MaterialsList=2]
+20,[MaterialsList=3]
+5,[MaterialsList=4]
+2,[MaterialsList=5]
+3,[MaterialsList=6]
+
+;Structures2
+30,[StructureList=1]
+20,[StructureList=2]
+30,[StructureList=3]
+10,[StructureList=4]
+10,[StructureList=5]
+
+#
+#SECTION 3
+#
+;RockType3
+8,[RockTypeList=1]
+15,[RockTypeList=2]
+10,[RockTypeList=3]
+5,[RockTypeList=4]
+15,[RockTypeList=5]
+15,[RockTypeList=6]
+25,[RockTypeList=7]
+7,[RockTypeList=8]
+
+;RockSize3
+8,[RockSizeList=1]
+12,[RockSizeList=2]
+18,[RockSizeList=3]
+25,[RockSizeList=4]
+20,[RockSizeList=5]
+9,[RockSizeList=6]
+8,[RockSizeList=7]
+
+;Hairworms3
+5,[WormList=1] 
+30,[WormList=2]
+15,[WormList=3]
+10,[WormList=4]
+20,[WormList=5]
+15,[WormList=6]
+5,[WormList=7]
+
+;Hostile Condition3
+6,[ConditionList=1]
+10,[ConditionList=2]
+5,[ConditionList=3]
+10,[ConditionList=4]
+7,[ConditionList=5]
+4,[ConditionList=6]
+4,[ConditionList=7]
+10,[ConditionList=8]
+30,[ConditionList=9]
+9,[ConditionList=10]
+3,[ConditionList=11]
+2,[ConditionList=12]
+
+;Complex Materials3
+20,[MaterialsList=1]
+35,[MaterialsList=2]
+20,[MaterialsList=3]
+12,[MaterialsList=4]
+10,[MaterialsList=5]
+3,[MaterialsList=6]
+
+;Structures3
+15,[StructureList=1]
+30,[StructureList=2]
+25,[StructureList=3]
+10,[StructureList=4]
+20,[StructureList=5]
+
+#
+#SECTION 4
+#
+;RockType4
+5,[RockTypeList=1]
+20,[RockTypeList=2]
+15,[RockTypeList=3]
+1,[RockTypeList=4]
+15,[RockTypeList=5]
+10,[RockTypeList=6]
+20,[RockTypeList=7]
+14,[RockTypeList=8]
+
+;RockSize4
+3,[RockSizeList=1]
+10,[RockSizeList=2]
+10,[RockSizeList=3]
+15,[RockSizeList=4]
+25,[RockSizeList=5]
+19,[RockSizeList=6]
+18,[RockSizeList=7]
+
+;Hairworms4
+5,[WormList=2]
+40,[WormList=3]
+15,[WormList=4]
+20,[WormList=5]
+5,[WormList=6]
+15,[WormList=7]
+
+;Hostile Condition4
+1,[ConditionList=3]
+5,[ConditionList=4]
+10,[ConditionList=5]
+7,[ConditionList=6]
+5,[ConditionList=7]
+30,[ConditionList=8]
+20,[ConditionList=9]
+13,[ConditionList=10]
+4,[ConditionList=11]
+5,[ConditionList=12]
+
+;Complex Materials4
+5,[MaterialsList=1]
+10,[MaterialsList=2]
+35,[MaterialsList=3]
+35,[MaterialsList=4]
+10,[MaterialsList=5]
+5,[MaterialsList=6]
+
+;Structures4
+10,[StructureList=1]
+25,[StructureList=2]
+20,[StructureList=3]
+15,[StructureList=4]
+30,[StructureList=5]
+
+:RockTypeList
+1,Metal (Common), [MetalCommon]|DenseMult=10| 
+2,<Font Color="Green">Metal (Valuable), [MetalValuable]</Font>|DenseMult=10|
+3,Metal (Rare earth), [Rare] |DenseMult=10|
+4,Rock, Soft - [RockSoft] |DenseMult=3|
+5,Rock, Hard - [RockHard] |DenseMult=5|
+6,Nonmetal - [Nonmetal]|DenseMult=.5|
+7,Nonmetal, rare - [Rare]|DenseMult=.5|
+8,Radioactive, [Radioactives]|DenseMult=15|
+
+:RockSizeList
+1,Gravel 
+2,|TempRoll={Dice~1D100}|%TempRoll% Tiny ({Calc~{Dice~1d8}*%TempRoll%*%DenseMult%} Lbs.)
+3,|TempRoll={Dice~2D6}|%TempRoll% Large ({Calc~{Dice~1d3500+499}*%TempRoll%*%DenseMult%/2000} short tons.)
+4,|TempRoll={Dice~3D6}|%TempRoll% Huge ({Calc~{Dice~2d8}*%TempRoll%*%DenseMult%} short tons.)
+5,|TempRoll={Dice~1d8}|%TempRoll% Gargantuan ({Calc~{Dice~1d110+15}*%TempRoll%*%DenseMult%} short tons.)
+6,|TempRoll={Dice~2d4}|%TempRoll% Colossal ({Calc~{Dice~1d1875+125}*%TempRoll%*%DenseMult%} short tons.)
+7,|PlanetSize={Dice~1d71+9}|
+_|PlanetRadius={Calc~(%PlanetSize%/100)*%UnitFeet%/2}| 
+_Planetoid<UL>
+_<LI>%PlanetSize% /% of unit size</LI>
+_<LI>({Round~3,{Calc~(%43pi%*{Power~%PlanetRadius%^3})*(90*%DenseMult%)/{Power~10^9}}} 10^9 short tons</LI>
+_<LI><B>Secondary</b></LI><uL>
+_{Loop~{Dice~2d3},<li>
+_[PlanetoidSec]
+_{Reset~RockType%MapSection%}</li>}</ul></ul>
+
+;PlanetoidSec
+50,[RockType%MapSection%]
+25,[MaterialsList-4]
+13,[WormList]
+12,[StructureList]
+
+:ConditionList
+<<B><Font Color="Red">
+></Font></B>
+1,Explosive gas
+2,Corrosive gas
+3,Unstable portals (Losthome)
+4,Unstable portals (Fringe)
+5,Accelerated time, Minor
+6,Accelerated time, Medium
+7,Accelerated time, Major
+8,Worn space
+9,Grounding area
+10,Grounding area, severe
+11,Extreme pressure area
+12,Hurricane force winds
+
+:ConditionDesc
+<<li>
+></li>
+1,<B>Explosive gas</B> - 2d4 fire and bludgeoning damage for every die of of electricity or fire damage done in the volume per size category above fine 
+2,<B>Corrosive gas</B> – 1d8 acid damage per round per size category above fine, bypasses hardness.
+3,<B>Unstable portals (Losthome)</B> - 2d6 slashing damage per size category above fine upon use 
+4,<B>Unstable portals (Fringe)</B> - 2d6 slashing damage per size category above fine upon use
+5,<B>Accelerated time, Minor</B> - 1 round = 1 turn
+6,<B>Accelerated time, Medium</B> - 1 turn = 1 day
+7,<B>Accelerated time, Major</B> - 1 hour = 1 year
+8,<B>Worn space</B> - 1 hp crushing damage per round per round 
+9,<B>Grounding area</B> – Greater dispel every turn
+10,<B>Grounding area, severe</B> – Greater dispel every round
+11,<B>Extreme pressure area</B> - 1d6 pressure damage per round
+12,<B>Hurricane force winds</B> - blown 1d3 units in a random direction
+
+:MaterialsList
+<<B><Font Color="Violet">
+></LI></UL>{Reset~CrystalType}
+1,Crystal Deposit</Font></B><UL><LI>[CrystalType] shards{Reset~CrystalType}</LI><LI> in [Embedded]</LI></UL>
+2,Crystal Deposit</Font></B><UL><LI>Meager [CrystalType]</LI><LI>in [Embedded]</LI> |DenseMult=.05| </LI><LI>[RockSize%MapSection%-15]</LI></UL>
+3,Crystal Deposit</Font></B><UL><LI>Minor [CrystalType]</LI><LI>in [Embedded]</LI> |DenseMult=.1| </LI><LI>[RockSize%MapSection%-10]</LI></UL>
+4,Crystal Deposit</Font></B><UL><LI>Major [CrystalType]</LI><LI>in [Embedded]</LI> |DenseMult=.25| </LI><LI>[RockSize%MapSection%+5]</LI></UL>
+5,Crystal Deposit</Font></B><UL><LI>Solid [CrystalType]</LI><LI>in [Embedded]</LI> |DenseMult=.75| </LI><LI>[RockSize%MapSection%+15]</LI></UL>
+6,Voidstone field
+
+;Embedded
+1,[RockHard]
+1,[RockSoft]
+
+:StructureList
+<<B><Font Color="Blue">
+></Font></B>
+1,Crypt
+2,Linked Crypts x {Dice~1d4+1}
+3,Linked Crypts x {Dice~2d6}
+4,Ethereal Cathedral
+5,Dark Mire
+
+:WormList
+<<B><Font Color="Green">
+></Font></B>
+1,Hairworm, {Dice~1d3} small 
+2,Swarm, {Dice~2d4+1} Small
+3,Hairworm, Medium
+4,Swarm, {Dice~1d6+3} Medium
+5,Hairworm, Large
+6,Colony, {Dice~3D6} Medium
+7,Hairworm, Colossal
+
+#
+#Flavor Type
+#
+;!CrystalType
+1,Sapphire
+1,Amethyst
+1,Quartz
+1,Diamond
+1,Ruby
+1,Opal
+1,Emerald
+1,Silicon
+1,Beryl
+1,Jade
+1,Onyx
+
+;MetalValuable
+1,Gold
+1,Platinum
+1,Silver
+
+;MetalCommon
+1,Copper
+1,Iron
+1,Tin
+1,Lead
+1,Aluminum
+1,Zinc
+1,Nickel
+1,Cobalt
+1,Mercury
+1,Magnesium
+1,Tungsten
+
+;Rare
+1,Thallium
+1,Indium
+1,Iridium
+1,Cadmium
+1,Gallium
+1,Palladium
+1,Rhodium
+1,ruthium
+1,Technetium
+1,Molybendium
+1,Niobium
+1,Zirconium
+1,Yittrium
+1,Titanium
+1,Neodinymum
+
+;Radioactives
+1,Francium
+1,Cesium
+1,Radium
+1,Uranium
+1,Plutonium
+1,Barium
+1,Rubidium
+1,Thorium
+
+;Nonmetal
+1,Sulfur
+1,Talc
+1,Calcium
+1,Phosphorous
+1,Carbon
+1,Potassium
+
+:NonmetalRare
+1,Vanadium
+1,Lithium
+1,Germanium
+1,Antimony
+1,Bismuth
+1,Arsenic
+
+;RockSoft
+1,Sandstone
+1,Siltstone
+1,Limestone
+1,Slate
+1,Pumice
+1,Soapstone
+1,Calcite
+1,Fluorite
+1,Hematite
+1,Magnetite
+1,Mica
+1,Pyrite
+1,Asbestos
+1,Graphite
+1,Gypsum
+1,Halite
+1,Chalk
+
+;RockHard
+1,Granite
+1,Basalt
+1,Marble
+1,Flint
+1,Obsidian
+1,Gneiss
