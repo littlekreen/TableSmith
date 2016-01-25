@@ -1,0 +1,30 @@
+;SpecialMaterialType
+1,{If~{Or~{And~%Ref_Armors!ArmorCat%!=Shield,%Ref_Armors!ArmorMat%=Metal},{And~%Ref_Weapons!EquipCat%=Weapon,%Ref_Weapons!WeapMat%=Metal}}=1 ? Adamantine / [SpecialMaterialType]}
+ 
+1,{If~{Or~{And~%Ref_Armors!ArmorCat%=Light,{Or~%Ref_Armors!ArmorMat%=Leather,%Ref_Armors!ArmorMat%=Hide}},{And~%Ref_Armors!ArmorCat%=Medium,{Or~%Ref_Armors!ArmorMat%=Leather,%Ref_Armors!ArmorMat%=Hide}}}=1 ? Angelskin / [SpecialMaterialType]}
+ 
+1,{If~{Or~{And~%Ref_Weapons!WeapCat%=Simple,%Ref_Weapons!WeapHands%=One,%Ref_Weapons!WeapDmg1%=Bludgeoning},{And~%Ref_Armors!ArmorCat%=Shield,%Ref_Armors!ArmorMat%=Wood}}=1 ? Bone / [SpecialMaterialType]}
+ 
+1,{If~{Or~{And~%Ref_Weapons!WeapCat%=Simple,%Ref_Weapons!WeapHands%=One,%Ref_Weapons!WeapMat%=Metal},{And~{Or~%Ref_Armors!ArmorCat%=Light,%Ref_Armors!ArmorCat%=Medium},%Ref_Armors!ArmorMat%=Metal}}=1 ? Bronze / [SpecialMaterialType]}
+ 
+1,{If~{And~{Or~%Ref-Armors!EquipCat%=Weapon,%RefWeapons!EquipCat%=Armor},{Or~%Ref-Armors!EquipMat%=Metal,%RefWeapons!EquipMat%=Metal},}=1 ? Cold Iron / [SpecialMaterialType]}
+ 
+1,{If~{And~{Or~%Ref_Armors!EquipMat%=Leather,%Ref_Armors!EquipMat%=Hide},{Or~%Ref_Armors!EquipCat%=Armor,%Ref_Armors!EquipCat%=Other}}=1 ? Darkleaf Cloth / [SpecialMaterialType]}
+ 
+1,{If~{And~%Ref_Armors!ArmorCat%=Light,%Ref_Armors!ArmorMat%!=Metal}=1 Eel Hide / [SpecialMaterialType]}
+ 
+1,{If~{Or~{And~%Ref_Armors!EquipCat%=Armor,%Ref_Armors!ArmorMat%=Metal},{And~%Ref_Weapons!EquipCat%=Weapon,%Ref_Weapons!WeapMat%=Metal}}=1 ? Elysian Bronze / [SpecialMaterialType]}
+ 
+1,{If~{Or~{And~%Ref_Armors!EquipCat%=Armor,%Ref_Armors!ArmorMat%=Metal},{And~%Ref_Weapons!EquipCat%=Weapon,%Ref_Weapons!WeapMat%=Metal}}=1 ? Fire-Forged Steel / [SpecialMaterialType]}
+ 
+1,{If~{Or~{And~%Ref_Armors!EquipCat%=Armor,%Ref_Armors!ArmorMat%=Metal},{And~%Ref_Weapons!EquipCat%=Weapon,%Ref_Weapons!WeapMat%=Metal}}=1 ? Frost-Forged Steel / [SpecialMaterialType]}
+ 
+1,{If~{Or~{Or~%Ref_Armors!ArmorCat%=Light,%Ref_Armors!ArmorCat%=Medium},{Or~%Ref_Weapons!WeapDmg2%Slashing,%Ref_Weapons!WeapDmg3%=Slashing}}=1 ? Gold / [SpecialMaterialType]}
+ 
+1,{If~{And~{Or~%Ref_Armors!EquipMat%=Leather,%Ref_Armors!EquipMat%=Hide},{Or~%Ref_Armors!EquipCat%=Armor,%Ref_Armors!EquipCat%=Other}}=1 ? Griffon Mane / [SpecialMaterialType]}
+ 
+1,{If~{Or~{And~%Ref_Armors!EquipCat%=Armor,%Ref_Armors!EquipMat%=Metal},{And~%Ref_Weapons!EquipCat%=Weapon,%Ref_Weapons!EquipMat%=Metal}}=1 ? Living Steel / [SpecialMaterialType]}
+ 
+1,{If~{And~%Ref_Weapons!WeapCat%=Light,%Ref_Weapons!WeapHands%=One,{Or~%Ref_Weapons!WeapDmg2%=Piercing,%Ref_Weapons!WeapDmg3%=Slashing}}=1 ? Obsidian / [SpecialMaterialType]}
+ 
+1,{If~{And~%Ref_Weapons!WeapCat%=Light,%Ref_Weapons!WeapHands%=One,%Ref_Weapons!WeapDmg1%=Bludgeoning}=1 ? Stone / [SpecialMaterialType]}
