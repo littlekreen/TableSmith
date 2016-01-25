@@ -1,30 +1,97 @@
 ;SpecialMaterialType
-1,{If~{Or~{And~%Ref_Armors!ArmorCat%!=Shield,%Ref_Armors!ArmorMat%=Metal},{And~%Ref_Weapons!EquipCat%=Weapon,%Ref_Weapons!WeapMat%=Metal}}=1 ? Adamantine / [SpecialMaterialType]}
+1,{If~{Or~[IsMetalShield],[IsMetalWeapon]}=1 ? Adamantine / [SpecialMaterialType]}
  
-1,{If~{Or~{And~%Ref_Armors!ArmorCat%=Light,{Or~%Ref_Armors!ArmorMat%=Leather,%Ref_Armors!ArmorMat%=Hide}},{And~%Ref_Armors!ArmorCat%=Medium,{Or~%Ref_Armors!ArmorMat%=Leather,%Ref_Armors!ArmorMat%=Hide}}}=1 ? Angelskin / [SpecialMaterialType]}
+1,{If~{Or~{And~[IsLightArmor],[IsFleshBased]},{And~[IsMediumArmor],[IsFleshBased]}}=1 ? Angelskin / [SpecialMaterialType]}
  
-1,{If~{Or~{And~%Ref_Weapons!WeapCat%=Simple,%Ref_Weapons!WeapHands%=One,%Ref_Weapons!WeapDmg1%=Bludgeoning},{And~%Ref_Armors!ArmorCat%=Shield,%Ref_Armors!ArmorMat%=Wood}}=1 ? Bone / [SpecialMaterialType]}
+1,{If~{Or~{And~[IsSimple1HWeapon],[AnyWeaponDamageBludgeoning],{And~[IsShield],[IsWood]}}=1 ? Bone / [SpecialMaterialType]}
  
-1,{If~{Or~{And~%Ref_Weapons!WeapCat%=Simple,%Ref_Weapons!WeapHands%=One,%Ref_Weapons!WeapMat%=Metal},{And~{Or~%Ref_Armors!ArmorCat%=Light,%Ref_Armors!ArmorCat%=Medium},%Ref_Armors!ArmorMat%=Metal}}=1 ? Bronze / [SpecialMaterialType]}
+1,{If~{Or~{And~[IsSimple1HWeapon],[IsMetalWeapon]},{And~{Or~[IsLightArmor],[IsMediumArmor]},[IsMetalArmor]}}=1 ? Bronze / [SpecialMaterialType]}
  
-1,{If~{And~{Or~%Ref-Armors!EquipCat%=Weapon,%RefWeapons!EquipCat%=Armor},{Or~%Ref-Armors!EquipMat%=Metal,%RefWeapons!EquipMat%=Metal},}=1 ? Cold Iron / [SpecialMaterialType]}
+1,{If~{And~{Or~[IsMetalArmor],[IsMetalWeapon]}}=1 ? Cold Iron / [SpecialMaterialType]}
  
-1,{If~{And~{Or~%Ref_Armors!EquipMat%=Leather,%Ref_Armors!EquipMat%=Hide},{Or~%Ref_Armors!EquipCat%=Armor,%Ref_Armors!EquipCat%=Other}}=1 ? Darkleaf Cloth / [SpecialMaterialType]}
+1,{If~{And~[IsFleshBased],{Or~[IsArmor],[IsOtherArmor]}}=1 ? Darkleaf Cloth / [SpecialMaterialType]}
  
-1,{If~{And~%Ref_Armors!ArmorCat%=Light,%Ref_Armors!ArmorMat%!=Metal}=1 Eel Hide / [SpecialMaterialType]}
+1,{If~{And~[IsLightArmor],[IsMetalArmor]!=1}=1 Eel Hide / [SpecialMaterialType]}
  
-1,{If~{Or~{And~%Ref_Armors!EquipCat%=Armor,%Ref_Armors!ArmorMat%=Metal},{And~%Ref_Weapons!EquipCat%=Weapon,%Ref_Weapons!WeapMat%=Metal}}=1 ? Elysian Bronze / [SpecialMaterialType]}
+1,{If~{Or~[IsMetalArmor],[IsMetalWeapon]}=1 ? Elysian Bronze / [SpecialMaterialType]}
  
-1,{If~{Or~{And~%Ref_Armors!EquipCat%=Armor,%Ref_Armors!ArmorMat%=Metal},{And~%Ref_Weapons!EquipCat%=Weapon,%Ref_Weapons!WeapMat%=Metal}}=1 ? Fire-Forged Steel / [SpecialMaterialType]}
+1,{If~{Or~[IsMetalArmor],[IsMetalWeapon]}=1 ? Fire-Forged Steel / [SpecialMaterialType]}
  
-1,{If~{Or~{And~%Ref_Armors!EquipCat%=Armor,%Ref_Armors!ArmorMat%=Metal},{And~%Ref_Weapons!EquipCat%=Weapon,%Ref_Weapons!WeapMat%=Metal}}=1 ? Frost-Forged Steel / [SpecialMaterialType]}
+1,{If~{Or~[IsMetalArmor],[IsMetalWeapon]}=1 ? Frost-Forged Steel / [SpecialMaterialType]}
  
-1,{If~{Or~{Or~%Ref_Armors!ArmorCat%=Light,%Ref_Armors!ArmorCat%=Medium},{Or~%Ref_Weapons!WeapDmg2%Slashing,%Ref_Weapons!WeapDmg3%=Slashing}}=1 ? Gold / [SpecialMaterialType]}
+1,{If~{Or~{Or~[IsLightArmor],[IsMediumArmor]},[AnyWeaponDamageSlashing]}=1 ? Gold / [SpecialMaterialType]}
  
-1,{If~{And~{Or~%Ref_Armors!EquipMat%=Leather,%Ref_Armors!EquipMat%=Hide},{Or~%Ref_Armors!EquipCat%=Armor,%Ref_Armors!EquipCat%=Other}}=1 ? Griffon Mane / [SpecialMaterialType]}
+1,{If~{And~[IsFleshBased],{Or~[IsArmor],[IsOtherArmor]}}=1 ? Griffon Mane / [SpecialMaterialType]}
  
-1,{If~{Or~{And~%Ref_Armors!EquipCat%=Armor,%Ref_Armors!EquipMat%=Metal},{And~%Ref_Weapons!EquipCat%=Weapon,%Ref_Weapons!EquipMat%=Metal}}=1 ? Living Steel / [SpecialMaterialType]}
+1,{If~{Or~[IsMetalArmor],[IsMetalWeapon]}=1 ? Living Steel / [SpecialMaterialType]}
  
-1,{If~{And~%Ref_Weapons!WeapCat%=Light,%Ref_Weapons!WeapHands%=One,{Or~%Ref_Weapons!WeapDmg2%=Piercing,%Ref_Weapons!WeapDmg3%=Slashing}}=1 ? Obsidian / [SpecialMaterialType]}
+1,{If~{And~[IsLight1HWeapon],[AnyWeaponDamageSlashing]}=1 ? Obsidian / [SpecialMaterialType]}
  
-1,{If~{And~%Ref_Weapons!WeapCat%=Light,%Ref_Weapons!WeapHands%=One,%Ref_Weapons!WeapDmg1%=Bludgeoning}=1 ? Stone / [SpecialMaterialType]}
+1,{If~{And~[IsLight1HWeapon],[AnyWeaponDamageBludgeoning]}=1 ? Stone / [SpecialMaterialType]}
+
+#Armors
+
+:IsMetalShield
+1,{And~[IsShield],%Ref_Armors!ArmorMat%=Metal}
+
+:IsMetalArmor
+1,{And~[IsArmor],%Ref_Armors!ArmorMat%=Metal}
+
+:IsArmor
+1,%Ref_Armors!EquipCat%=Armor
+
+:IsOtherArmor
+1,%Ref_Armors!EquipCat%=Other
+
+:IsShield
+1,%Ref_Armors!ArmorCat%!=Shield
+
+:IsLightArmor
+1,%Ref_Armors!ArmorCat%=Light
+
+:IsMediumArmor
+1,%Ref_Armors!ArmorCat%=Medium
+
+:IsLeather
+1,%Ref_Armors!EquipMat%=Leather
+
+:IsHide
+1,%Ref_Armors!EquipMat%=Hide
+
+:IsFleshBased
+1,{Or~[IsLeather],[IsHide]}
+
+:IsShield
+1,%Ref_Armors!ArmorCat%=Shield
+
+:IsWoodArmor
+1,{And~[IsArmor],%Ref_Armors!ArmorMat%=Wood}
+
+#Weapons
+
+:IsMetalWeapon
+1,{And~[IsWeapon],%Ref_Weapons!WeapMat%=Metal}
+
+:IsWeapon
+1,%RefWeapons!EquipCat%=Weapon
+
+:IsLightWeapon
+1,%Ref_Weapons!WeapCat%=Light
+
+:IsLight1HWeapon
+1,{And~[IsLightWeapon],[Is1HWeapon]]}
+
+:IsSimple1HWeapon
+1,{And~[IsSimpleWeapon],[Is1HWeapon]]}
+
+:IsSimpleWeapon
+1,%Ref_Weapons!WeapCat%=Simple
+
+:Is1HWeapon
+1,%Ref_Weapons!WeapHands%=One
+
+:AnyWeaponDamageSlashing
+1,{Or~%Ref_Weapons!WeapDmg1%=Slashing, %Ref_Weapons!WeapDmg2%=Slashing, %Ref_Weapons!WeapDmg3%=Slashing}
+
+:AnyWeaponDamageBludgeoning
+1,{Or~%Ref_Weapons!WeapDmg1%=Bludgeoning, %Ref_Weapons!WeapDmg2%=Bludgeoning, %Ref_Weapons!WeapDmg3%=Bludgeoning}
